@@ -763,4 +763,27 @@ const superheroes = [
     },
   },
 ];
+superheroes.forEach(showSuperhero);
 //Start your code here
+
+function showSuperhero(superhero) {
+  const template = document.querySelector("template").content;
+  const clone = template.cloneNode(true);
+  clone.querySelector(".id").textContent = `ID number: ${superhero.id}`;
+  clone.querySelector(".powers").textContent = `Powers: ${superhero.powers}`;
+  clone.querySelector(".outfit").textContent = `Outfit: ${superhero.outfit}`;
+  clone.querySelector(".alias").textContent = `Alias: ${superhero.alias}`;
+  clone.querySelector(".mission").textContent = `Mission: ${superhero.mission}`;
+  clone.querySelector(".cape").textContent = `Cape: ${superhero.cape}`;
+  clone.querySelector(".image").src = superhero.image;
+  clone.querySelector(
+    ".enemies"
+  ).textContent = `Number of enemies: ${superhero.enemies}`;
+  clone.querySelector(".name").textContent = `Name: ${superhero.sidekick.name}`;
+  clone.querySelector(
+    ".cape2"
+  ).textContent = `Cape: ${superhero.sidekick.cape}`;
+
+  const parent = document.querySelector("main");
+  parent.appendChild(clone);
+}
